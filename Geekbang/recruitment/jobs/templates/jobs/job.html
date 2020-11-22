@@ -1,0 +1,33 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+    <div class='container'>
+        <a href="{% url 'jobs:joblist' %}" style="color:blue">Return to Job List</a>
+        <div class="jumbotron">
+        {% if job %}
+        <div class="positon_name">
+            <h2>Position Name: {{job.job_name}}</h2>
+            <p>City: {{job.city_name}}</p>
+        </div>
+        <hr>
+        <div class="postion_responsibility" style="width:680px;">
+            <h3>Position Responsibility:</h3>
+            <p>{{job.job_responsibility}}</p>
+        <br>
+        </div>
+        <hr>
+        <div class="position_requirement" >
+            <h3>Position Requirement:</h3>
+            <p>{{job.job_requirement}}</p>
+        </div>
+        <br>
+        <div class="apply_postion">
+            <input type="button" class="btn btn-primary" value="APPLY">
+        </div>
+        {% else %}
+        <p>Position not available</p>
+        {% endif %}
+
+    </div>
+    </div>
+{% endblock %}

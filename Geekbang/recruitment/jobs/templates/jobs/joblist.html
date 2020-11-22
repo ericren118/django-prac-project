@@ -1,0 +1,46 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+
+    <h3>Welcome to the Django world!</h3>
+
+{% if job_list %}
+<ul>
+    {% for job in job_list %}
+
+        <li>
+            {{job.the_job_type}}:
+            <a href="/job/{{job.id}}/">{{job.job_name}}</a>
+            {{job.the_job_city}}
+        </li>
+
+    {% endfor %}
+</ul>
+{% else %}
+<p>No jobs are available.</p>
+{% endif %}
+
+<p>Code in different way to get the same value:</p>
+{% if job_list %}
+<ul>
+    {% for job in job_list %}
+
+        <li>
+            {{job.get_job_type_display}}:
+            <a href="/job/{{job.id}}/">{{job.job_name}}</a>
+            {{job.get_job_city_display}}
+        </li>
+
+    {% endfor %}
+</ul>
+{% else %}
+<p>No jobs are available.</p>
+{% endif %}
+
+</div>
+
+</div>
+{% endblock %}

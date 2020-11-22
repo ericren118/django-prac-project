@@ -1,0 +1,35 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <a href="{% url 'jobs:newjoblist' %}" style="color:blue">Return to Job List</a>
+        <div class="jumbotron">
+            <h1>This is CLASS BASED VIEW!</h1>
+            <hr>
+            {% if new_job_detail %}
+            <div class="positon_name" >
+                <h2>POSITION: {{new_job_detail.job_name}}</h2>
+                <p>City: {{new_job_detail.get_job_city_display}}</p>
+            </div>
+            <hr>
+            <div class="postion_responsibility" style='width:600px'>
+                <h3>RESPONSIBILITY:</h3>
+                <p>{{new_job_detail.job_responsibility}}</p>
+            <br>
+            </div>
+            <hr>
+            <div class="position_requirement" style='width:600px' >
+                <h3>REQUIREMENT:</h3>
+                <p>{{new_job_detail.job_requirement}}</p>
+            </div>
+            <br>
+            <div class="apply_postion">
+                <input type="button" class="btn btn-primary" value="APPLY">
+            </div>
+            {% else %}
+            <p>Position not available</p>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

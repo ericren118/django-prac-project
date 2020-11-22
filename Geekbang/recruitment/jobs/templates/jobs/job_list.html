@@ -1,0 +1,28 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+<div class="container">
+
+<div class="jumbotron">
+<h3>Welcome to the NEW CLASS BASED VIEW Django world!</h3>
+{% if newjoblist %}
+<ul>
+    {% for x in newjoblist %}
+
+        <li>
+            {{x.get_job_type_display}}:
+            <a href='{% url 'jobs:new_job_detail' x.pk %}' style="color:blue">{{x.job_name}}</a>
+            {{x.get_job_city_display}}
+        </li>
+
+    {% endfor %}
+</ul>
+{% else %}
+<p>No jobs are available....</p>
+{% endif %}
+
+
+</div>
+</div>
+
+{% endblock %}
