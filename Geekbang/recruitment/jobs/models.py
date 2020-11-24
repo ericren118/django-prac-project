@@ -6,18 +6,19 @@ JobTypes = [
     (0, '技术类'),
     (1, '产品类'),
     (2, 'Operation'),
-    (3, 'Desing')
+    (3, 'Design')
 ]
 
 Cities = [
-    (0,'北京'),
+    (0, '北京'),
     (1, '上海'),
     (2, 'Melbourne'),
-    (3, 'Sydney')
+    (3, 'Sydney'),
 ]
 
 class Job(models.Model):
-    job_type = models.SmallIntegerField(blank=False, choices=JobTypes, verbose_name = '职位类别')
+
+    job_type = models.SmallIntegerField(blank=False, choices=JobTypes, verbose_name='职位类别')
     job_city = models.SmallIntegerField(blank=False, choices=Cities, verbose_name='City')
     job_name = models.CharField(max_length=255, blank=False, verbose_name='职位名称')
     job_responsibility = models.TextField(max_length=1024, verbose_name='Position')
